@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="style.css">
         
 <body>
-    <input type="text" class="new">
-    <button class="create"> Создать страницу</button>
-    <input type="text" class="old">
-    <button class="remove">Удалить страницу</button>
-        <script src="bundle.js"></script>
+    <div id= 'app'>
+        <input type="text" v-model = 'newPageName'>
+        <button class="create" v-on:click = 'createPage'> Создать страницу</button>
+        <!-- <input type="text" class="old">
+        <button class="remove">Удалить страницу</button> -->
+        <div v-for = 'page in pageList'>
+            <h1>{{ page }} <a href="#" v-on:click = 'deletePage(page)'>(X)</a></h1>
+        </div>
+    </div>
+    
+    <script src="bundle.js"></script>
 </head>
 </body>
 </html>
