@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
         
 <body>
-    <iframe class="pg" src="" frameborder="0"></iframe>
+    <iframe  src="" frameborder="0"></iframe>
     <!-- <div id= 'app'>
         <input type="text" v-model = 'newPageName'>
         <button class="create" v-on:click = 'createPage'> Создать страницу</button>
@@ -15,7 +15,27 @@
             <h1>{{ page }} <a href="#" v-on:click = 'deletePage(page)'>(X)</a></h1>
         </div>
     </div> -->
+    <div id="app">
+        <div class="panel">
+            <button class="uk-button-primary" uk-toggle = "target: #modal-save">Опубликовать</button>
+        </div>
     
+        <div id = "modal-save" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body" >
+                <h2 class="uk-modal-title">Сохранение</h2>
+                <p>Вы действительно хотите сохранить и опубликовать?</p>
+                <p class="uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close">Отмена</button>
+                    <button class="uk-button uk-button-primary uk-modal-close" @click = "onBtnSave">Опубликовать</button>
+                </p>
+            </div>
+        </div>
+
+        <div class="loader" v-bind:class="{ 'active': showLoader}">
+            <span uk-spinner="ratio: 4.5"></span>
+        </div>
+    </div>
+
     <script src="bundle.js"></script>
 </head>
 </body>
